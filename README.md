@@ -25,7 +25,7 @@ First, create a new instance of the `HyperliquidRestClient` with the raw URL and
 ```go
 import "github.com/cordilleradev/hyperliquid-go/pkg/client/rest"
 
-client, err := rest.NewHyperliquidRestClient("https://api.hyperliquid.com", "https://leaderboard.hyperliquid.com")
+client, err := rest.NewHyperliquidRestClient("https://api.hyperliquid.xyz", "https://stats-data.hyperliquid.xyz/Mainnet/leaderboard")
 if err != nil {
     // handle error
 }
@@ -69,7 +69,7 @@ Create an instance of `HyperliquidWebsocketClient`:
 ```go
 import "github.com/cordilleradev/hyperliquid-go/pkg/client/stream"
 
-wsClient, err := stream.NewHyperliquidWebsocketClient("wss://ws.hyperliquid.com")
+wsClient, err := stream.NewHyperliquidWebsocketClient("wss://api.hyperliquid.xyz/ws")
 if err != nil {
     // handle error
 }
@@ -95,7 +95,7 @@ for mids := range wsClient.AllMidsChan {
 To stream order updates for a specific user:
 
 ```go
-userId := "user_public_key"
+userId := "0x880ac484a1743862989a441d6d867238c7aa311c"
 err = wsClient.StreamOrderUpdates(userId)
 if err != nil {
     // handle error
@@ -121,5 +121,3 @@ go func() {
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-
-```
